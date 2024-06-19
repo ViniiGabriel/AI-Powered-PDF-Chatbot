@@ -32,7 +32,7 @@ public:
         telaIdConta->resize(399, 234);
         label = new QLabel(telaIdConta);
         label->setObjectName("label");
-        label->setGeometry(QRect(110, 10, 171, 51));
+        label->setGeometry(QRect(120, 30, 171, 51));
         QFont font;
         font.setPointSize(18);
         label->setFont(font);
@@ -50,8 +50,8 @@ public:
 
     void retranslateUi(QDialog *telaIdConta)
     {
-        telaIdConta->setWindowTitle(QCoreApplication::translate("telaIdConta", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("telaIdConta", "ID da conta", nullptr));
+        telaIdConta->setWindowTitle(QCoreApplication::translate("telaIdConta", "ID", nullptr));
+        label->setText(QCoreApplication::translate("telaIdConta", "ID da conta:", nullptr));
         pushButton->setText(QCoreApplication::translate("telaIdConta", "Consultar", nullptr));
     } // retranslateUi
 

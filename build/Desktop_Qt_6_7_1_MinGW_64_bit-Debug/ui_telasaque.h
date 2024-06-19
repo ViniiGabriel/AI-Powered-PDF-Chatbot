@@ -30,12 +30,13 @@ public:
         if (telaSaque->objectName().isEmpty())
             telaSaque->setObjectName("telaSaque");
         telaSaque->resize(400, 300);
+        telaSaque->setAcceptDrops(true);
         txt_valor = new QLineEdit(telaSaque);
         txt_valor->setObjectName("txt_valor");
         txt_valor->setGeometry(QRect(60, 100, 281, 61));
         label = new QLabel(telaSaque);
         label->setObjectName("label");
-        label->setGeometry(QRect(60, 40, 281, 41));
+        label->setGeometry(QRect(80, 50, 281, 41));
         QFont font;
         font.setPointSize(23);
         label->setFont(font);
@@ -50,7 +51,7 @@ public:
 
     void retranslateUi(QDialog *telaSaque)
     {
-        telaSaque->setWindowTitle(QCoreApplication::translate("telaSaque", "Dialog", nullptr));
+        telaSaque->setWindowTitle(QCoreApplication::translate("telaSaque", "Saque", nullptr));
         label->setText(QCoreApplication::translate("telaSaque", "Valor para Sacar:", nullptr));
         btn_saque->setText(QCoreApplication::translate("telaSaque", "Sacar", nullptr));
     } // retranslateUi

@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../telaidconta.h"
+#include "G:/Meu Drive/Programas/bancoComBDeQT/telaidconta.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>

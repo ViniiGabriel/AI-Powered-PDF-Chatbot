@@ -34,7 +34,7 @@ public:
         telaTransferencia->resize(632, 418);
         label = new QLabel(telaTransferencia);
         label->setObjectName("label");
-        label->setGeometry(QRect(100, 20, 401, 71));
+        label->setGeometry(QRect(140, 30, 321, 71));
         QFont font;
         font.setPointSize(24);
         label->setFont(font);
@@ -62,7 +62,7 @@ public:
 
     void retranslateUi(QDialog *telaTransferencia)
     {
-        telaTransferencia->setWindowTitle(QCoreApplication::translate("telaTransferencia", "Dialog", nullptr));
+        telaTransferencia->setWindowTitle(QCoreApplication::translate("telaTransferencia", "Transfer\303\252ncia", nullptr));
         label->setText(QCoreApplication::translate("telaTransferencia", "Valor da Transfer\303\252ncia:", nullptr));
         label_2->setText(QCoreApplication::translate("telaTransferencia", "ID Destinat\303\241rio", nullptr));
         pushButton->setText(QCoreApplication::translate("telaTransferencia", "Transferir", nullptr));

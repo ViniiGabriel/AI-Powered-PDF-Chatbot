@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../telatransferencia.h"
+#include "G:/Meu Drive/Programas/bancoComBDeQT/telatransferencia.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>

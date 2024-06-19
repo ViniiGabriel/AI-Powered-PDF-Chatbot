@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../telainicial.h"
+#include "../../../../GitHub/bancoQT/telainicial.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>

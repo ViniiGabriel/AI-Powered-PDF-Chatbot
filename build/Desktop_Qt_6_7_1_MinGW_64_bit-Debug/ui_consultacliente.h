@@ -70,7 +70,7 @@ public:
     QLabel *label_rslimite;
     QLabel *txt_limite;
     QSpacerItem *horizontalSpacer_8;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_10;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_limiteDisp;
@@ -289,20 +289,20 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_8);
 
-        widget = new QWidget(consultaCliente);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(260, 140, 315, 60));
-        horizontalLayout_10 = new QHBoxLayout(widget);
+        layoutWidget3 = new QWidget(consultaCliente);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(260, 140, 315, 60));
+        horizontalLayout_10 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName("horizontalLayout_9");
-        label_limiteDisp = new QLabel(widget);
+        label_limiteDisp = new QLabel(layoutWidget3);
         label_limiteDisp->setObjectName("label_limiteDisp");
 
         horizontalLayout_9->addWidget(label_limiteDisp);
 
-        label_rslimiteDisp = new QLabel(widget);
+        label_rslimiteDisp = new QLabel(layoutWidget3);
         label_rslimiteDisp->setObjectName("label_rslimiteDisp");
         label_rslimiteDisp->setFont(font);
 
@@ -311,7 +311,7 @@ public:
 
         horizontalLayout_10->addLayout(horizontalLayout_9);
 
-        txt_limiteDisp = new QLabel(widget);
+        txt_limiteDisp = new QLabel(layoutWidget3);
         txt_limiteDisp->setObjectName("txt_limiteDisp");
         txt_limiteDisp->setFont(font);
 
@@ -331,7 +331,7 @@ public:
 
     void retranslateUi(QDialog *consultaCliente)
     {
-        consultaCliente->setWindowTitle(QCoreApplication::translate("consultaCliente", "Dialog", nullptr));
+        consultaCliente->setWindowTitle(QCoreApplication::translate("consultaCliente", "Consulta", nullptr));
         btn_deposito->setText(QCoreApplication::translate("consultaCliente", "Dep\303\263sito", nullptr));
         btn_saque->setText(QCoreApplication::translate("consultaCliente", "Saque", nullptr));
         btn_transferencia->setText(QCoreApplication::translate("consultaCliente", "Transfer\303\252ncia", nullptr));

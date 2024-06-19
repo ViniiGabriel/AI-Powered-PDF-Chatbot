@@ -99,3 +99,9 @@ void listaClientes::on_btn_editar_clicked()
     }
 }
 
+
+void listaClientes::on_btn_pesquisa_clicked()
+{
+    ui->tb_lista->clear();
+}
+

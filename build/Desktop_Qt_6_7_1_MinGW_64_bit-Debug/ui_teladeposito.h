@@ -32,7 +32,7 @@ public:
         telaDeposito->resize(403, 275);
         label = new QLabel(telaDeposito);
         label->setObjectName("label");
-        label->setGeometry(QRect(30, 30, 341, 41));
+        label->setGeometry(QRect(60, 30, 291, 41));
         QFont font;
         font.setPointSize(23);
         label->setFont(font);
@@ -50,7 +50,7 @@ public:
 
     void retranslateUi(QDialog *telaDeposito)
     {
-        telaDeposito->setWindowTitle(QCoreApplication::translate("telaDeposito", "Dialog", nullptr));
+        telaDeposito->setWindowTitle(QCoreApplication::translate("telaDeposito", "Dep\303\263sito", nullptr));
         label->setText(QCoreApplication::translate("telaDeposito", "Valor para depositar:", nullptr));
         btn_depositar->setText(QCoreApplication::translate("telaDeposito", "Depositar", nullptr));
     } // retranslateUi
