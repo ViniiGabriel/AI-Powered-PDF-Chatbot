@@ -1,0 +1,9 @@
+streamlit
+requests
+transformers
+python-dotenv
+PyMuPDF
+chromadb
+sentence-transformers
+fastapi
+uvicorn
