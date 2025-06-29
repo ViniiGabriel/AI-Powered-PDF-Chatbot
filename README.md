@@ -1,4 +1,4 @@
-# 🤖 AI-Powered PDF Chatbot
+#  AI-Powered PDF Chatbot
 
 Chat with your PDF documents using powerful LLMs like **Zephyr** or **Mistral** via Hugging Face APIs.  
 Upload any PDF, get a summary, and ask questions with accurate context-aware responses.
@@ -7,19 +7,19 @@ Upload any PDF, get a summary, and ask questions with accurate context-aware res
 
 ---
 
-## ✨ Features
+##  Features
 
-- 📄 Upload multiple PDF documents  
-- 🧠 Summarize large PDFs instantly  
-- 💬 Ask questions based on document content  
-- 🔁 Retry on API failure for better stability  
-- 🔄 Re-upload PDFs anytime using the button  
-- 🧠 Contextual memory (in-memory embeddings)  
-- 🌐 Powered by Hugging Face Inference API  
+-  Upload multiple PDF documents  
+-  Summarize large PDFs instantly  
+-  Ask questions based on document content  
+-  Retry on API failure for better stability  
+-  Re-upload PDFs anytime using the button  
+-  Contextual memory (in-memory embeddings)  
+-  Powered by Hugging Face Inference API  
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 - **Frontend**: Streamlit  
 - **Backend**: FastAPI (deployed on Render)  
@@ -35,7 +35,7 @@ Want to run this project on your own machine? Just follow these steps:
 
 ---
 
-### ✅ 1. Clone this repo
+###  1. Clone this repo
 
 ```bash
 git clone https://github.com/gokularaman-c/AI-Powered-PDF-Chatbot.git
@@ -44,7 +44,7 @@ cd AI-Powered-PDF-Chatbot
 
 ---
 
-### ✅ 2. Install dependencies
+###  2. Install dependencies
 
 Make sure you have Python 3.10+ and pip installed. Then run:
 
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 
 ---
 
-### ✅ 3. Add your Hugging Face token
+###  3. Add your Hugging Face token
 
 Create a `.env` file in both `frontend/` and `backend/` folders with:
 
@@ -73,7 +73,7 @@ HF_TOKEN=your_huggingface_token
 
 ---
 
-### ✅ 4. Run the app locally
+###  4. Run the app locally
 
 Use two terminals or terminal tabs:
 
@@ -96,7 +96,7 @@ Then open your browser and go to:
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 - **Frontend**: Deployed using Streamlit Cloud  
   👉 https://ai-powered-pdf-chatbot.streamlit.app  
