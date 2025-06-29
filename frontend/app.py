@@ -81,7 +81,7 @@ if uploaded_files:
         with st.spinner("Generating summary..."):
             try:
                 resp = requests.post(
-                    "http://localhost:8000/summarize",
+                    "https://ai-powered-pdf-chatbot-z6u3.onrender.com/summarize",
                     json={"context": all_text[:2000]},
                     headers={"X-Model-URL": st.session_state.model_url},
                     timeout=60
@@ -109,7 +109,7 @@ if uploaded_files:
 
             try:
                 resp = requests.post(
-                    "http://localhost:8000/ask",
+                    "https://ai-powered-pdf-chatbot-z6u3.onrender.com/ask",
                     json={"question": question, "context": context},
                     headers={"X-Model-URL": st.session_state.model_url},
                     timeout=60
