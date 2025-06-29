@@ -6,3 +6,4 @@ PyMuPDF
 chromadb==0.4.24
 sentence-transformers
 numpy==1.24.4
+protobuf==3.20.*
