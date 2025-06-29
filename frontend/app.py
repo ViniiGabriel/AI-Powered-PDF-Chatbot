@@ -2,9 +2,10 @@ import streamlit as st
 import fitz  # PyMuPDF
 import os
 import requests
-import chromadb
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 # Set Streamlit page settings
 st.set_page_config(page_title="📄 Chat with Your Document", layout="wide")
@@ -12,16 +13,17 @@ st.set_page_config(page_title="📄 Chat with Your Document", layout="wide")
 # Load environment variables
 load_dotenv()
 
-# Load sentence transformer model
+# Load embedding model
 @st.cache_resource
 def load_embedder():
     return SentenceTransformer("all-MiniLM-L6-v2")
 
 embedder = load_embedder()
 
-# Set up ChromaDB persistent client
-chroma_client = chromadb.PersistentClient(path="./chroma")
-collection = chroma_client.get_or_create_collection(name="pdf_chunks")
+# Session state for document chunks & embeddings
+if "chunks" not in st.session_state:
+    st.session_state.chunks = []
+    st.session_state.chunk_embeddings = []
 
 # Title and model selector
 st.title("📄 Chat with Your Document")
@@ -33,19 +35,12 @@ MODEL_OPTIONS = {
 selected_model = st.selectbox("🔁 Choose a model", list(MODEL_OPTIONS.keys()))
 st.session_state.model_url = MODEL_OPTIONS[selected_model]
 
-# Upload multiple PDFs
 uploaded_files = st.file_uploader("📄 Upload one or more PDF files", type="pdf", accept_multiple_files=True)
 
 if uploaded_files:
     all_text = ""
-    all_chunks = []
-    all_ids = []
-    all_metadata = []
-
-    try:
-        collection.delete(where={"source": {"$eq": "pdf"}})
-    except Exception as e:
-        st.warning(f"⚠️ Could not delete old chunks: {str(e)}")
+    st.session_state.chunks = []
+    st.session_state.chunk_embeddings = []
 
     def chunk_text(text, chunk_size=500, overlap=50):
         chunks = []
@@ -56,7 +51,7 @@ if uploaded_files:
             start += chunk_size - overlap
         return chunks
 
-    for pdf_index, uploaded_file in enumerate(uploaded_files):
+    for uploaded_file in uploaded_files:
         if uploaded_file.type != "application/pdf":
             st.error(f"❌ {uploaded_file.name} is not a valid PDF.")
             continue
@@ -66,17 +61,13 @@ if uploaded_files:
         all_text += file_text + "\n"
 
         chunks = chunk_text(file_text)
-        all_chunks.extend(chunks)
-        all_ids.extend([f"{uploaded_file.name}_chunk_{i}" for i in range(len(chunks))])
-        all_metadata.extend([{"source": "pdf", "filename": uploaded_file.name}] * len(chunks))
+        embeddings = embedder.encode(chunks)
+
+        st.session_state.chunks.extend(chunks)
+        st.session_state.chunk_embeddings.extend(embeddings)
 
         st.success(f"✅ Processed {uploaded_file.name} with {len(chunks)} chunks.")
 
-    # Embed and store chunks
-    embeddings = embedder.encode(all_chunks).tolist()
-    collection.add(documents=all_chunks, metadatas=all_metadata, ids=all_ids, embeddings=embeddings)
-
-    # Summarize
     if st.button("📝 Summarize the Uploaded PDFs"):
         with st.spinner("Generating summary..."):
             try:
@@ -89,7 +80,7 @@ if uploaded_files:
                 if resp.status_code == 200:
                     summary = resp.json().get("summary", "")
                     if summary.strip() == "" or summary.strip().lower() == "summary":
-                        st.warning("⚠️ The model did not return a valid summary. Try rephrasing or re-uploading.")
+                        st.warning("⚠️ The model did not return a valid summary.")
                     else:
                         st.markdown("### 📝 Summary")
                         st.write(summary)
@@ -98,14 +89,14 @@ if uploaded_files:
             except Exception as e:
                 st.error(f"❌ Request failed: {str(e)}")
 
-    # Ask a question
     question = st.text_input("💬 Ask a question about the PDFs")
 
-    if question:
+    if question and st.session_state.chunk_embeddings:
         with st.spinner("Thinking..."):
-            q_embed = embedder.encode([question])[0].tolist()
-            results = collection.query(query_embeddings=[q_embed], n_results=4)
-            context = "\n".join(results["documents"][0])
+            q_embed = embedder.encode([question])
+            similarities = cosine_similarity(q_embed, st.session_state.chunk_embeddings)[0]
+            top_indices = np.argsort(similarities)[::-1][:4]
+            context = "\n".join([st.session_state.chunks[i] for i in top_indices])
 
             try:
                 resp = requests.post(
