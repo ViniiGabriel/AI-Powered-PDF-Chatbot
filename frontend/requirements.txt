@@ -1,0 +1,7 @@
+streamlit
+requests
+transformers
+python-dotenv
+PyMuPDF
+chromadb==0.4.24
+sentence-transformers
